@@ -264,8 +264,8 @@ display_categories: ["external-services"] # these categories will be displayed o
 # -----------------------------------------------------------------------------
 
 scholar:
-  last_name: [Einstein]
-  first_name: [Albert, A.]
+  last_name: [Yang]
+  first_name: [Jintao, J.]
 
   style: apa
   locale: en
@@ -316,8 +316,11 @@ filtered_bibtex_keywords:
     pdf,
     poster,
     preview,
+    preview_alt,
+    preview_caption,
     selected,
     slides,
+    summary,
     supp,
     video,
     website,

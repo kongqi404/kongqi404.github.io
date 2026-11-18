@@ -1,0 +1,36 @@
+---
+layout: default
+---
+<section class="home-intro" id="about" aria-labelledby="home-name">
+  <div class="home-bio">
+    <p class="home-affiliation">{{ page.affiliation }}</p>
+    <h1 id="home-name">{{ site.first_name }} {% if site.middle_name %}{{ site.middle_name }} {% endif %}<em>{{ site.last_name }}</em></h1>
+    <div class="home-bio-text">{{ content }}</div>
+    <div class="home-contact">
+      <a class="home-email" href="mailto:{{ site.data.socials.email }}">
+        <i class="ti ti-mail" aria-hidden="true"></i>{{ site.data.socials.email }}
+      </a>
+      <div class="home-profile-links">
+        <a href="https://github.com/{{ site.data.socials.github_username }}">
+          <i class="fa-brands fa-github" aria-hidden="true"></i>GitHub
+        </a>
+        {% if site.data.socials.scholar_userid %}
+          <a href="https://scholar.google.com.hk/citations?hl=zh-CN&amp;user={{ site.data.socials.scholar_userid | url_encode }}">
+            <i class="ai ai-google-scholar" aria-hidden="true"></i>Google Scholar
+          </a>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+  <figure class="home-portrait">
+    <div class="portrait-board">
+      <img src="{{ page.portrait | prepend: '/assets/img/' | relative_url }}" alt="Portrait of {{ site.first_name }} {{ site.last_name }}" width="272" height="354">
+    </div>
+    <figcaption><i class="ti ti-map-pin" aria-hidden="true"></i>{{ page.location }}</figcaption>
+  </figure>
+</section>
+
+<section class="home-publications" id="publications" aria-labelledby="publications-title">
+  <h2 id="publications-title">Publications</h2>
+  {% bibliography --group_by none --template home-paper --query @*[selected=true]* %}
+</section>

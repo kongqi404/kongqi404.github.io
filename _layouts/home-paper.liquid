@@ -1,0 +1,58 @@
+---
+---
+<article class="home-paper">
+  {% if entry.preview %}
+    {% assign figure_url = entry.preview %}
+    {% unless figure_url contains '://' %}
+      {% assign figure_url = figure_url | prepend: '/assets/img/publication_preview/' | relative_url %}
+    {% endunless %}
+    <a class="paper-figure-link" href="{{ figure_url }}" aria-label="Open full-size figure for {{ entry.title | escape }}">
+      <figure class="paper-figure">
+        <img src="{{ figure_url }}" alt="{{ entry.preview_alt | default: entry.title | escape }}" loading="lazy" decoding="async">
+        <figcaption>
+          {{ entry.preview_caption | default: 'View full-size figure' }}
+          <i class="ti ti-arrows-maximize" aria-hidden="true"></i>
+        </figcaption>
+      </figure>
+    </a>
+  {% endif %}
+  <div class="paper-details">
+    <p class="paper-venue">
+      {{ entry.abbr | default: entry.booktitle | default: entry.journal }} {{ entry.year }}
+      {% if entry.note %} · {{ entry.note }}{% endif %}
+    </p>
+    <h3>{{ entry.title }}</h3>
+    <p class="paper-authors">
+      {%- for author in entry.author_array -%}
+        {%- unless forloop.first %}, {% endunless -%}
+        {%- if site.scholar.first_name contains author.first and site.scholar.last_name contains author.last -%}
+          <strong>{{ author.first }} {{ author.last }}</strong>
+        {%- else -%}
+          <span>{{ author.first }} {{ author.last }}</span>
+        {%- endif -%}
+      {%- endfor -%}
+    </p>
+    {% if entry.summary %}<p class="paper-summary">{{ entry.summary }}</p>{% endif %}
+    <div class="paper-links">
+      {% if entry.pdf %}
+        {% assign pdf_url = entry.pdf %}
+        {% unless pdf_url contains '://' %}
+          {% assign pdf_url = pdf_url | prepend: '/assets/pdf/' | relative_url %}
+        {% endunless %}
+        <a href="{{ pdf_url }}"><i class="ti ti-file-text" aria-hidden="true"></i>Paper (PDF)</a>
+      {% elsif entry.html %}
+        {% assign paper_url = entry.html %}
+        {% unless paper_url contains '://' %}
+          {% assign paper_url = paper_url | prepend: '/assets/html/' | relative_url %}
+        {% endunless %}
+        <a href="{{ paper_url }}"><i class="ti ti-file-text" aria-hidden="true"></i>Paper page</a>
+      {% endif %}
+      {% if entry.doi %}
+        <a href="https://doi.org/{{ entry.doi }}">DOI<i class="ti ti-arrow-up-right" aria-hidden="true"></i></a>
+      {% endif %}
+      {% if entry.code %}
+        <a href="{{ entry.code }}"><i class="ti ti-code" aria-hidden="true"></i>Code</a>
+      {% endif %}
+    </div>
+  </div>
+</article>

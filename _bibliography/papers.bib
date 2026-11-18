@@ -3,6 +3,37 @@
 
 @string{aps = {American Physical Society,}}
 
+@inproceedings{yang2026rubato,
+  title={{Rubato}: Signature Attention for Irregular Multivariate Time Series Forecasting},
+  author={Yang, Jintao and Wang, Meng and Guo, Chenjuan and Yang, Bin},
+  booktitle={Advances in Neural Information Processing Systems},
+  abbr={NeurIPS},
+  year={2026},
+  note={Spotlight},
+  html={https://neurips.cc/virtual/2026/poster/153092},
+  code={https://github.com/decisionintelligence/Rubato},
+  preview={rubato-architecture.png},
+  preview_caption={Rubato architecture},
+  preview_alt={Rubato feeds channel-specific patch encodings and joint path signatures into signature kernel attention, then decodes forecasts at target timestamps.},
+  summary={Rubato uses signatures of joint trajectories to learn attention across patches, then predicts each variable at the requested timestamps.},
+  selected={true}
+}
+
+@inproceedings{wang2025lipformer,
+  title={Towards Lightweight Time Series Forecasting: A Patch-Wise Transformer with Weak Data Enriching},
+  author={Wang, Meng and Yang, Jintao and Yang, Bin and Li, Hui and Gong, Tongxin and Yang, Bo and Cui, Jiangtao},
+  booktitle={2025 IEEE 41st International Conference on Data Engineering (ICDE)},
+  abbr={ICDE},
+  year={2025},
+  doi={10.1109/ICDE65448.2025.00100},
+  pdf={https://arxiv.org/pdf/2501.10448},
+  preview={lipformer-architecture.png},
+  preview_caption={Fig. 1. LiPFormer architecture},
+  preview_alt={LiPFormer combines a patch-wise predictor for historical sequences with a dual encoder for target sequences and future covariates.},
+  summary={LiPFormer uses patch-wise attention to model historical observations and a dual encoder to learn from future covariates such as weather forecasts.},
+  selected={true}
+}
+
 @book{einstein1920relativity,
   title={Relativity: the Special and General Theory},
   author={Einstein, Albert},
@@ -57,7 +88,6 @@
   video={https://www.youtube-nocookie.com/embed/aqz-KE-bpKQ},
   additional_info={. *More Information* can be [found here](https://github.com/alshedivat/al-folio/)},
   annotation={* Example use of superscripts<br>† Albert Einstein},
-  selected={true},
   inspirehep_id = {3255}
 }
 
